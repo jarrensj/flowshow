@@ -9,13 +9,13 @@ import * as fcl from "@onflow/fcl";
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [user, setUser] = useState({loggedIn: null})
+  const [user, setUser] = useState({ loggedIn: null, addr: null})
   useEffect(() => fcl.currentUser.subscribe(setUser), [])
 
   const AuthedState = () => {
     return (
       <div>
-        <div>Address: {user?.addr ?? "No Address"}</div>
+        <div>Address: {user?.addr ?? "no address"}</div>
         <button onClick={fcl.unauthenticate}>Log Out</button>
       </div>
     )
